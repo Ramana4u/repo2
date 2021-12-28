@@ -1,8 +1,8 @@
 pipeline{
-    agent{lable 'main'}
+    agent {label 'main'}
     parameters{
-        string(name: 'keyname', deafultValue: 'sshkey1', description: 'keypair name ')
-        string(name: 'count', deafultValue: '1', description: 'No of instances ')
+        string(name: 'keyname', defaultValue: 'sshkey1', description: 'keypair name ')
+        string(name: 'count', defaultValue: '1', description: 'No of instances ')
         }
     stages{
         stage('AWS cli version'){
