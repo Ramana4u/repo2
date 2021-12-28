@@ -12,8 +12,7 @@ pipeline{
           }
        stage('Launch Ec2'){
          steps{
-           def cmd = "aws ec2 run-instances --image-id ami-0629230e074c580f2 --count " + count + " --instance-type t2.micro --key-name " + keyname + " --security-group-ids sg-017c097bb1674f881 --subnet-id subnet-0a22ca2d020ca46c1 --region us-east-2"
-           sh (cmd)
+           sh "aws ec2 run-instances --image-id ami-0629230e074c580f2 --count " + count + " --instance-type t2.micro --key-name " + keyname + " --security-group-ids sg-017c097bb1674f881 --subnet-id subnet-0a22ca2d020ca46c1 --region us-east-2"
            }
         }
      }
