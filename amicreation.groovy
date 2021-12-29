@@ -6,8 +6,8 @@ pipeline{
             }
   stages{
     stage('creating ami'){
-      environment{
-        'def cmd'
+      Environment{
+        "def cmd"
           }
       steps{
          def cmd = "aws ec2 create-image --instance-id i-033e9c4279b6714ba --name myami1 --region us-east-2"
