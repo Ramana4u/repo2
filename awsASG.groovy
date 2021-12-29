@@ -1,5 +1,6 @@
 pipeline{
   agent {label 'main'}
+  def cmd
   parameters{
     string (name: 'keyname', defaultValue: 'sshkey1', description: ' ')
             }
