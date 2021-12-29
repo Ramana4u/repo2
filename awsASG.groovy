@@ -1,14 +1,12 @@
 pipeline{
   agent {label 'main'}
-  def cmd
   parameters{
     string (name: 'keyname', defaultValue: 'sshkey1', description: ' ')
             }
   stages{
     stage('Create Launch config'){
       steps{
-         def cmd = "aws autoscaling create-launch-configuration --launch-configuration-name my-lc3-cli --image-id ami-0629230e074c580f2 --instance-type t2.micro --security-groups sg-017c097bb1674f881 --key-name " + keyname + " --user-data file://userdata.txt --region us-east-2"
-        sh (cmd)
+         sh "aws autoscaling create-launch-configuration --launch-configuration-name my-lc3-cli --image-id ami-0629230e074c580f2 --instance-type t2.micro --security-groups sg-017c097bb1674f881 --key-name " + keyname + " --user-data file://userdata.txt --region us-east-2"
           } 
        }
     stage('ASG'){
