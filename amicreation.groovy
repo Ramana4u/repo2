@@ -4,11 +4,11 @@ pipeline{
     string(name: 'keyname',defaultValue: 'sshkey1')
     string(name: 'count', defaulValue:'1')
             }
-  stages{
-    stage('creating ami'){
-      Environment{
+    Environment{
         'def jsonitem'
           }
+  stages{
+    stage('creating ami'){
       steps{
          def cmd = "aws ec2 create-image --instance-id i-033e9c4279b6714ba --name myami1 --region us-east-2"
           def output = sh(script: cmd,returnStdout: true)
