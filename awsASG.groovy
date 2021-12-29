@@ -1,5 +1,5 @@
 pipeline{
-  agent (label 'main')
+  agent {label 'main'}
   parameters{
     string (name: 'keyname', defaultValue: 'sshkey1', description: ' ')
             }
