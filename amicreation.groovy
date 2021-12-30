@@ -4,9 +4,6 @@ pipeline{
     string(name: 'keyname',defaultValue: 'sshkey1')
     string(name: 'count', defaulValue:'1')
             }
-    Environment{
-        'def jsonitem'
-          }
   stages{
     stage('creating ami'){
       steps{
