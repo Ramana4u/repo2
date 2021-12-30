@@ -2,25 +2,29 @@ pipeline{
   agent {label 'main'}
   parameters{
     string(name: 'keyname',defaultValue: 'sshkey1')
-    string(name: 'count', defaulValue:'1')
+    string(name: 'count', defaultValue:'1')
             }
   stages{
     stage('creating ami'){
       steps{
+        script{
          def cmd = "aws ec2 create-image --instance-id i-033e9c4279b6714ba --name myami1 --region us-east-2"
           def output = sh(script: cmd,returnStdout: true)
          jsonitem = readJSON text: output
          println(jsonitem)
          sleep(180)
+            }
           }
         }
     stage('Launch ec2'){
       steps{
+        script{
         def cmd = "aws ec2 run-instances --image-id ${jsonitem['ImageId']} --count "+count+" --instance-type t2.micro --key-name "+keyname+" --security-group-ids sg-017c097bb1674f881 --subnet-id subnet-0a22ca2d020ca46c1 --region us-east-2"
         def output = sh(script:cmd,returnStdout: true)
         jsonitem1 = readJSON text: output
         println(jsonitem)
         sleep(60)
+            }
            }
          }
     stage('terminate ec2'){
