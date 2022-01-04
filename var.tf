@@ -46,10 +46,6 @@ variable "vpc_id" {
   type = string
   default = "vpc-048331c397b1a9bc3"
 }
-variable "protocol" {
-  type = string
-  default = "HTTP"
-}
 variable "target_id" {
   type = string
   default = "i-033e9c4279b6714ba"
