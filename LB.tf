@@ -15,7 +15,7 @@ resource "aws_lb_target_group" "test" {
   vpc_id   = var.vpc_id
 }
 resource "aws_lb_listener" "front_end" {
-  load_balancer_arn = aws_lb.front_end.arn
+  load_balancer_arn = aws_lb.test.arn
   port              = "80"
   protocol          = var.protocol
   default_action {
