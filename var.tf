@@ -30,7 +30,7 @@ variable "security_groups" {
   type = list(string)
   default = ["sg-017c097bb1674f881"]
 }
-variable " subnets" {
+variable "subnets" {
   type = list(string)
   default =  ["subnet-0ad08acb398ada09d","subnet-0a22ca2d020ca46c1"]
 }
